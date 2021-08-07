@@ -12,7 +12,7 @@ body{
 #logo img {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 45%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
 }
@@ -24,4 +24,13 @@ body{
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   font-size: 3em;
+}
+.witopedia-text {
+  position: absolute;
+  font-family: "Times New Roman", Times, serif;
+  left: 50%;
+  top: 53%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  font-size: 4em;
 }
