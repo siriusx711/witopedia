@@ -12,7 +12,7 @@ function getGeolocation(id){
   const success = (position) => {
     var crd = position.coords;
     let showCord = document.getElementById('geolocation');
-    showCord.innerHTML = crd.latitude + " " + crd.longitude;
+    showCord.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude;
     console.log(position);
   }
 

@@ -3,7 +3,7 @@ body{
 }
 
 #logo{
-  height: 200px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +11,7 @@ body{
 
 #logo img {
   position: absolute;
+  width:300px;
   left: 50%;
   top: 40%;
   transform: translate(-50%, -50%);
@@ -18,20 +19,22 @@ body{
 }
 
 #geolocation {
+  align-content: #ccc;
   position: absolute;
+  width: 100%;
   left: 50%;
-  top: 90%;
-  width: 100%
+  top: 80%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
-  font-size: 2em;
+  text-align:center;
 }
+
 .witopedia-text {
   position: absolute;
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Source Serif Pro', serif;
   left: 50%;
   top: 43%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
-  font-size: 6em;
+  font-size: 35px;
 }
