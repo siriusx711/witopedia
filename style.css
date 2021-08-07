@@ -1,0 +1,27 @@
+body{
+  background-color: #ffcc00ff;
+}
+
+#logo{
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+#geolocation {
+  position: absolute;
+  left: 50%;
+  top: 90%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  font-size: 3em;
+}
