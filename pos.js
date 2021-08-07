@@ -1,7 +1,34 @@
-const d = document,
-n = navigator;
+// const d = document,
+// n = navigator;
+//
+// function getGeolocation(id){
+//   const $id = d.getElementById(id),
+//   options = {
+//     enableHighAccuracy:true,
+//     timeout:5000,
+//     maximumAge:0,
+//   };
+//
+//   const success = (position) => {
+//     let crd = position.coords;
+//     let showCord = document.getElementById('geolocation');
+//     showCord.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude;
+//     console.log(position);
+//   }
+//
+//   const error = (er) => {
+//     $id.innerHTML = `<p><mark>Error ${er.code}: ${er.message}</mark></p>`;
+//     console.log(`Error ${er.code}:${er.message}`);
+//   }
+//
+//   n.geolocation.getCurrentPosition(success, error, options);
+//
+// }
 
+var id, target, option;
+const d = document;
 function getGeolocation(id){
+
   const $id = d.getElementById(id),
   options = {
     enableHighAccuracy:true,
@@ -9,11 +36,21 @@ function getGeolocation(id){
     maximumAge:0,
   };
 
+  target = {
+    latitude : 0,
+    longitude: 0,
+  }
+
   const success = (position) => {
-    var crd = position.coords;
-    let showCord = document.getElementById('geolocation');
-    showCord.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude;
-    console.log(position);
+  var crd = position.coords;
+  let showCord = document.getElementById('geolocation');
+  showCord.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude + "<br>" + "Prec: " + crd.accuracy;
+  console.log(position);
+
+    if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
+      console.log('Congratulation, you reach the target');
+      navigator.geolocation.clearWatch(id);
+    }
   }
 
   const error = (er) => {
@@ -21,6 +58,5 @@ function getGeolocation(id){
     console.log(`Error ${er.code}:${er.message}`);
   }
 
-  n.geolocation.getCurrentPosition(success, error, options);
-
+  id = navigator.geolocation.watchPosition(success, error, options);
 }
