@@ -40,12 +40,12 @@ function getGeolocation(id){
     }
 
     window.setInterval(intervalo(), 3000);
+    var dir = document.getElementById('dir');
 
     console.log(pActual + " " + pUltima);
     if (pActual[0,1] == pUltima[0,1]) {
       console.log("El dispositivo no se ha movido");
     }else{
-      var dir = document.getElementById('dir');
       dir.innerHTML = "Ultima posicion: " + pUltima[0,1] + "<br>" + "Actual: " + pActual[0,1];
     }
 
