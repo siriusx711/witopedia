@@ -1,5 +1,5 @@
 
-var id, target, option, mapa;
+var id, target, option, mapa, intervalo;
 const d = document;
 
 function getGeolocation(id){
@@ -21,7 +21,7 @@ function getGeolocation(id){
     var crd = position.coords;
     let showCord = document.getElementById('geolocation');
     showCord.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude + "<br>" + "Prec: " + crd.accuracy;
-    console.log(position);
+    //console.log(position);
 
       if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
         console.log('Congratulation, you reach the target');
@@ -32,23 +32,24 @@ function getGeolocation(id){
     mapa.innerHTML=`<a href="https://www.google.com/maps/@${crd.latitude},${crd.longitude},20z" target="_blank" rel="noopener">Ver en Google Maps</a>`;
 
     // colocar el codigo del intervalo
+    var ult = document.getElementById('ult');
+    var act = document.getElementById('act');
     var pActual = [crd.latitude,crd.longitude];
-    var pUltima = [crd.latitude,crd.longitude];
-    function intervalo(){
-      let lst = pUltima;
-      return lst;
-    }
 
-    window.setInterval(intervalo(), 3000);
-    var dir = document.getElementById('dir');
+    intervalo = setInterval(function () {
+      var pUltima = [crd.latitude,crd.longitude];
+      console.log("Última: "+"Lat: "+ pUltima[0]+ " Lng: " + pUltima[1]);
+      return (ult.innerHTML = "Última posicion: " + "Lat:" + pUltima[0] + " Lng: " + pUltima[1] + "<br>");
+    },3000);
 
-    console.log(pActual + " " + pUltima);
-    if (pActual[0,1] == pUltima[0,1]) {
-      console.log("El dispositivo no se ha movido");
-    }else{
-      dir.innerHTML = "Ultima posicion: " + pUltima[0,1] + "<br>" + "Actual: " + pActual[0,1];
-    }
+    intervalo2 = setInterval(function () {
+      var pActual = [crd.latitude,crd.longitude];
+      console.log("Actual:"+"Lat: "+ pActual[0]+ " Lng: " + pActual[1]);  //(dir.innerHTML = "Ultima posicion: " + pUltima[0,1] + "<br>" + "Actual: " + pActual[0,1]);
+      intervalo;
+      return (act.innerHTML = "Actual posicion: " + "Lat:" + pActual[0] + " Lng: " + pActual[1] + "<br>");
+    },1000);
 
+    console.log("Lat: "+ pActual[0]+ " Lng: " + pActual[1]);
   }
 
   const error = (er) => {
@@ -56,12 +57,12 @@ function getGeolocation(id){
     console.log(`Error ${er.code}:${er.message}`);
   }
 
-
-
-
-
-
-
   id = navigator.geolocation.watchPosition(success, error, options);
 
 }
+
+function init(){
+  console.log("Inicializado");
+}
+
+window.addEventListener("load", intervalo, false);
