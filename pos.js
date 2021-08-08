@@ -45,18 +45,9 @@ function getGeolocation(id){
     if (pActual[0,1] == pUltima[0,1]) {
       console.log("El dispositivo no se ha movido");
     }else{
-      let dir = document.getElementById('dir');
-      dir.innerHTML = "El dispositivo se ha movido";
+      var dir = document.getElementById('dir');
+      dir.innerHTML = "Ultima posicion: " + pUltima[0,1] + "<br>" + "Actual: " + pActual[0,1];
     }
-    // var lat = crd.latitude;
-    // var lng = crd.longitude;
-    //
-    // function setLastPosition(lat,lng){
-    //   var pPrevia = [lat,lng];
-    //   return pPrevia;
-    // }
-    //
-    // console.log(window.setInverval(setLastPosition,5000));
 
   }
 
