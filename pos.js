@@ -40,7 +40,7 @@ function getGeolocation(id){
       var pUltima = [crd.latitude,crd.longitude];
       console.log("Última: "+"Lat: "+ pUltima[0]+ " Lng: " + pUltima[1]);
       return (ult.innerHTML = "Última posicion: " + "Lat:" + pUltima[0] + " Lng: " + pUltima[1] + "<br>");
-    },3000);
+    },10000);
 
     intervalo2 = setInterval(function () {
       var pActual = [crd.latitude,crd.longitude];
