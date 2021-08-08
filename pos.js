@@ -45,12 +45,13 @@ function getGeolocation(id){
 
 }
 
-function init(){
-  // colocar el codigo del intervalo
-  var ult = document.getElementById('ult');
-  var act = document.getElementById('act');
-  var pActual = [crd.latitude,crd.longitude];
+// colocar el codigo del intervalo
+var ult = document.getElementById('ult');
+var act = document.getElementById('act');
 
+
+function init(){
+  var pActual = [crd.latitude,crd.longitude];
   intervalo = setInterval(function () {
     var pUltima = [crd.latitude,crd.longitude];
     console.log("Última: "+"Lat: "+ pUltima[0]+ " Lng: " + pUltima[1]);
