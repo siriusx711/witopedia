@@ -1,8 +1,8 @@
 
 var id, target, option, mapa, intervalo, intervalo2;
 const d = document;
-var ult = document.getElementById('ult');
-var act = document.getElementById('act');
+var ult = d.getElementById('ult');
+var act = d.getElementById('act');
 var crd;
 var showCord = document.getElementById('geolocation');
 
@@ -20,14 +20,13 @@ var showCord = document.getElementById('geolocation');
 //   return (ult.innerHTML = "Última posicion: " + "Lat:" + pUltima[0] + " Lng: " + pUltima[1] + "<br>");
 // },10000);
 
-
 // funcion de geolocation
 function getGeolocation(id){
 
   const $id = d.getElementById(id),
   options = {
     enableHighAccuracy:true,
-    timeout:5000,
+  //  timeout:5000,
     maximumAge:0,
   };
 
@@ -46,7 +45,11 @@ function getGeolocation(id){
       navigator.geolocation.clearWatch(id);
     }
 
-//    console.log("Actual:" + "Lat: " + crd.latitude + " Lng: " + crd.longitude);
+    intervalo = setInterval(function () {
+      ult.innerHTML = crd.longitude;
+    },5000);
+
+
 
     mapa = d.getElementById('mapa');
     mapa.innerHTML=`<a href="https://www.google.com/maps/@${crd.latitude},${crd.longitude},20z" target="_blank" rel="noopener">Ver en Google Maps</a>`;
@@ -57,6 +60,7 @@ function getGeolocation(id){
     $id.innerHTML = `<p><mark>Error ${er.code}: ${er.message}</mark></p>`;
     console.log(`Error ${er.code}:${er.message}`);
   }
+
 
   id = navigator.geolocation.watchPosition(success, error, options);
 
