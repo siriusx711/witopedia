@@ -3,7 +3,7 @@ var ultima = document.getElementById('ult');
 var actual = document.getElementById('act');
 
 var options2 = {
-  enableHighAccuracy: true,
+  enableHighAccuracy: false,
   timeout: 5000,
   maximumAge: 10000,
 };
