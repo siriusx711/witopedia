@@ -4,8 +4,8 @@ var actual = document.getElementById('act');
 
 var options = {
   enableHighAccuracy: true,
-  //timeout: 5000,
-  maximumAge: 10000
+  timeout: 5000,
+  maximumAge: 10000,
 };
 
 function success(pos) {
