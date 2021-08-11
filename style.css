@@ -51,9 +51,14 @@ body{
 }
 
 #ult{
-
-  margin: 0,0,0,0;
-  padding: 0,0,0,0;
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 73%;
+  color: green;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  text-align:center;
 }
 #act{
   font-weight: bold;
