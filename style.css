@@ -42,27 +42,41 @@ body{
 #mapa {
   position: fixed;
   text-align: center;
+
   left: 0;
   margin-bottom:0px;
   padding: 10px;
   bottom: 0;
   width: 100%;
-  background-color: red;
+  color:white;
+  background-color: #800080;
+}
+
+#mapa a{
+  color:white;
+  text-decoration: none;
 }
 
 #ult{
   position: absolute;
   width: 100%;
   left: 50%;
-  top: 73%;
+  top: 71%;
   color: green;
+
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   text-align:center;
 }
+
 #act{
-  font-weight: bold;
-  color: red;
-  margin: 0,0,0,0;
-  padding: 0,0,0,0;
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 73%;
+  color: purple;
+
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  text-align:center;
 }
