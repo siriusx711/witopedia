@@ -5,7 +5,7 @@ var actual = document.getElementById('act');
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,
-  maximumAge: 0,
+  maximumAge: 10000,
 };
 
 function success(pos) {
@@ -24,4 +24,5 @@ function error(err) {
   console.warn('ERROR(' + err.code + '): ' + err.message);
 };
 
-navigator.geolocation.getCurrentPosition(success, error, options);
+navigator.geolocation.watchPosition(success, error, options);
+//navigator.geolocation.getCurrentPosition(success, error, options);
