@@ -6,21 +6,7 @@ var act = d.getElementById('act');
 var crd;
 var showCord = document.getElementById('geolocation');
 
-// intervalos
-// intervalo2 = setInterval(function () {
-//   var pActual = [crd.latitude,crd.longitude];
-//   console.log("Actual:"+"Lat: "+ pActual[0]+ " Lng: " + pActual[1]);
-//   intervalo;
-//   return (act.innerHTML = "Actual posicion: " + "Lat:" + pActual[0] + " Lng: " + pActual[1] + "<br>");
-// },5000);
-//
-// intervalo = setInterval(function () {
-//   var pUltima = [crd.latitude,crd.longitude];
-//   console.log("Última: "+"Lat: "+ pUltima[0]+ " Lng: " + pUltima[1]);
-//   return (ult.innerHTML = "Última posicion: " + "Lat:" + pUltima[0] + " Lng: " + pUltima[1] + "<br>");
-// },10000);
 
-// funcion de geolocation
 function getGeolocation(id){
 
   const $id = d.getElementById(id),
@@ -47,9 +33,7 @@ function getGeolocation(id){
 
     intervalo = setInterval(function () {
       ult.innerHTML = crd.longitude;
-    },5000);
-
-
+    },10000);
 
     mapa = d.getElementById('mapa');
     mapa.innerHTML=`<a href="https://www.google.com/maps/@${crd.latitude},${crd.longitude},20z" target="_blank" rel="noopener">Ver en Google Maps</a>`;
