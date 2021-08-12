@@ -67,8 +67,12 @@ getCoords();
 
 var coordenadas = [];
 
+const click = new Audio('click.mp3');
+
 function save_coords()
 {
+  click.play();
+  click.loop = false;
   coordenadas.push([crd.latitude, crd.longitude]);
   window.localStorage.setItem(
     "coordenadas", JSON.stringify(coordenadas)
@@ -100,7 +104,7 @@ mapa.addEventListener('click', visibilidad, false);
 let map;
 
 function initMap() {
-
+  console.log("mapa iniciado");
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat:crd.latitude , lng:crd.longitude  },
     zoom: 16,
