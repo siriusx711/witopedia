@@ -1,4 +1,4 @@
-var id, target, option, mapa;
+var id, target, option;
 const d = document;
 var showCord = d.getElementById('geolocation');
 var latSt, lngSt, crd;
@@ -73,13 +73,51 @@ function save_coords()
   window.localStorage.setItem(
     "coordenadas", JSON.stringify(coordenadas)
   );
-parsearItems();
-}
-function parsearItems(){
-  let value = localStorage.getItem('coordenadas');
-  value = JSON.parse(value);
-  console.log("{"+"lat:"+coordenadas[0][0]+","+"lng:"+coordenadas[0][1]+"}");
+//parsearItems();
 }
 
+var value = localStorage.getItem('coordenadas');
+//function parsearItems(){
+value = JSON.parse(value);
+
+//}
+
+//parsearItems();
+//console.log("{"+"lat:"+value[0][0]+","+"lng:"+value[0][1]+"}");
+
 //console.log("{"+"lat:"+coordenadas[0][0]+","+"lng:"+coordenadas[0][1]+"}");
+
 // google Maps
+function visibilidad(){
+  if (map1.style.visibility == 'hidden') {
+    map1.style.visibility = 'visible';
+    mapa.innerHTML = "-"
+  }else{
+    map1.style.visibility = 'hidden';
+    mapa.innerHTML = "+"
+  }
+}
+const mapa = document.getElementById('mapa');
+const map1 = document.getElementById('map');
+mapa.addEventListener('click', visibilidad, false);
+
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 20.6698468, lng: -103.8269534 },
+    zoom: 8,
+  });
+
+  for (var i = 0; i < value.length; i++) {
+    const marker = new google.maps.Marker({
+      position:  { lat: value[i][i], lng: value[i][1] },
+      map,
+      title:"tope",
+    });
+    console.log(value[i]);
+  }
+
+
+
+}
