@@ -13,7 +13,7 @@
   </head>
   <body>
     <div id="map"></div>
-    <div id="map1">Google Map</div>
+    <!-- <div id="map1">Google Map</div> -->
     <div class="container">
       <div id="logo">
         <img src="./witopedia.svg" alt="Witopedia">
@@ -27,11 +27,11 @@
     <p id="mapa">-</p>
     <div id="geolocation"></div>
     <div id="guardar" onclick="save_coords()">GUARDAR UBICACIÓN</div>
-
-    <!-- <script type="text/javascript">
-      getGeolocation('geolocation');
-    </script> -->
     <script src="./pos.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      getGeolocation('geolocation');
+    </script>
+
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2wuA0BO3r7KsMQD_CenEILiFTslrFxzg">
     </script>

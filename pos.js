@@ -73,14 +73,10 @@ function save_coords()
   window.localStorage.setItem(
     "coordenadas", JSON.stringify(coordenadas)
   );
-//parsearItems();
 }
 
 var value = localStorage.getItem('coordenadas');
-//function parsearItems(){
 value = JSON.parse(value);
-
-//}
 
 //parsearItems();
 //console.log("{"+"lat:"+value[0][0]+","+"lng:"+value[0][1]+"}");
@@ -104,18 +100,20 @@ mapa.addEventListener('click', visibilidad, false);
 let map;
 
 function initMap() {
+
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 20.6698468, lng: -103.8269534 },
     zoom: 8,
   });
 
+
   for (var i = 0; i < value.length; i++) {
     const marker = new google.maps.Marker({
-      position:  { lat: value[i][i], lng: value[i][1] },
+      position:  { lat: value[0][0], lng: value[0][1] },
       map,
       title:"tope",
     });
-    console.log(value[i]);
+    console.log(value[i][0]);
   }
 
 
