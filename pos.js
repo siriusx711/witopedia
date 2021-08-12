@@ -98,7 +98,7 @@ const map1 = document.getElementById('map');
 mapa.addEventListener('click', visibilidad, false);
 
 let map;
-//var posicionActual = { lat:20.6698468 , lng:-103.8269534  };
+
 function initMap() {
 
   map = new google.maps.Map(document.getElementById("map"), {
@@ -106,16 +106,11 @@ function initMap() {
     zoom: 16,
   });
 
-
   for (var i = 0; i < value.length; i++) {
     const marker = new google.maps.Marker({
-      position: { lat: value[i][i], lng: value[i][1] },
-      map,
-      title:"tope",
+     position: { lat: value[i][0], lng: value[i][1] },
+     map,
+     title:"tope",
     });
-    //console.log(value[i][0]);
   }
-
-
-
 }
