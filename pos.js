@@ -103,6 +103,7 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat:crd.latitude , lng:crd.longitude  },
     zoom: 16,
+    zoomControl:false,
   });
 
   for (var i = 0; i < value.length; i++) {
@@ -113,6 +114,7 @@ function initMap() {
      icon: './icon.png',
     });
   }
+  map.setOptions({ styles: styles["hide"] });
 }
 
 const styles = {
