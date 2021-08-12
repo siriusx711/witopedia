@@ -98,18 +98,18 @@ const map1 = document.getElementById('map');
 mapa.addEventListener('click', visibilidad, false);
 
 let map;
-
+//var posicionActual = { lat:20.6698468 , lng:-103.8269534  };
 function initMap() {
 
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: crd.latitude, lng: crd.longitude },
-    zoom: 8,
+    center: { lat:crd.latitude , lng:crd.longitude  },
+    zoom: 16,
   });
 
 
   for (var i = 0; i < value.length; i++) {
     const marker = new google.maps.Marker({
-      position:  { lat: value[i][i], lng: value[i][1] },
+      position: { lat: value[i][i], lng: value[i][1] },
       map,
       title:"tope",
     });
