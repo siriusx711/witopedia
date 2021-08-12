@@ -82,19 +82,14 @@ function save_coords()
 var value = localStorage.getItem('coordenadas');
 value = JSON.parse(value);
 
-//parsearItems();
-//console.log("{"+"lat:"+value[0][0]+","+"lng:"+value[0][1]+"}");
-
-//console.log("{"+"lat:"+coordenadas[0][0]+","+"lng:"+coordenadas[0][1]+"}");
-
 // google Maps
 function visibilidad(){
   if (map1.style.visibility == 'hidden') {
     map1.style.visibility = 'visible';
-    mapa.innerHTML = "-"
+    mapa.innerHTML = "<img src='./location_off_white_24dp.svg'>"
   }else{
     map1.style.visibility = 'hidden';
-    mapa.innerHTML = "+"
+    mapa.innerHTML = "<img src='./location_on_white_24dp.svg'>"
   }
 }
 const mapa = document.getElementById('mapa');
@@ -113,8 +108,24 @@ function initMap() {
   for (var i = 0; i < value.length; i++) {
     const marker = new google.maps.Marker({
      position: { lat: value[i][0], lng: value[i][1] },
-     map,
+     map:map,
      title:"tope",
+     icon: './icon.png',
     });
   }
 }
+
+const styles = {
+  default: [],
+  hide: [
+    {
+      featureType: "poi.business",
+      stylers: [{ visibility: "off" }],
+    },
+    {
+      featureType: "transit",
+      elementType: "labels.icon",
+      stylers: [{ visibility: "off" }],
+    },
+  ],
+};

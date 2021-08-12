@@ -64,13 +64,14 @@ body {
   box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
-#mapa a{
-  position: absolute;
+#mapa img{
+  /* position: absolute;
   left: 50%;
-  top: 50%;
-  color:white;
-  padding-bottom: 0;
-  text-decoration: none;
+  top: 50%; */
+  width: 40px;
+  padding-top: 6px;
+  /* padding-bottom: 0;
+  text-decoration: none; */
 }
 
 #map {
