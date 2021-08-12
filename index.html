@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   </head>
   <body>
     <div class="container">
@@ -18,15 +19,18 @@
         <p class="texto">Guía fácil y libre</p>
       </div>
     </div>
-    <div id="guardar">CAMBIO 1</div>
-    <p id="ult">Última: </p>
-    <p id="act">Actual: </p>
-    <p id="mapa">MAPA</p>
+
+    <p id="lat">Última: </p>
+    <p id="lng">Actual: </p>
+    <!-- <p id="mapa">MAPA</p> -->
     <div id="geolocation"></div>
+    <div id="guardar" onclick="save_coords()">GUARDAR UBICACIÓN</div>
     <script src="./pos.js" charset="utf-8"></script>
     <script type="text/javascript">
       getGeolocation('geolocation');
     </script>
-    <script src="./lastpos.js" charset="utf-8"></script>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2wuA0BO3r7KsMQD_CenEILiFTslrFxzg">
+    </script>
   </body>
 </html>

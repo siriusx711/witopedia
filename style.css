@@ -1,5 +1,6 @@
 body{
   background-color: #ffcc00ff;
+  align-items: center;
 }
 
 .container{
@@ -21,7 +22,7 @@ body{
   position: absolute;
   width: 100%;
   left: 50%;
-  top: 80%;
+  top: 77%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   text-align:center;
@@ -57,11 +58,11 @@ body{
   text-decoration: none;
 }
 
-#ult{
+#lat{
   position: absolute;
   width: 100%;
   left: 50%;
-  top: 71%;
+  top: 66%;
   color: green;
 
   transform: translate(-50%, -50%);
@@ -69,11 +70,11 @@ body{
   text-align:center;
 }
 
-#act{
+#lng{
   position: absolute;
   width: 100%;
   left: 50%;
-  top: 73%;
+  top: 68%;
   color: purple;
 
   transform: translate(-50%, -50%);
@@ -82,5 +83,27 @@ body{
 }
 #guardar{
   position: absolute;
-  top: 0;
+  background-color: #F9A825;
+  padding-top:35px;
+  padding-bottom:35px;
+  padding-left:40px;
+  padding-right:40px;
+  width: 250px;
+  left: 50%;
+  bottom: 0%;
+  color: purple;
+  font-weight: bold;
+  font-size: 22px;
+
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  text-align:center;
+
+  /* position: fixed;
+  width: 200px;
+  height: 70px;
+  bottom: 5%;
+  padding: 10px;
+  border: 5px solid #F69DA1;
+  background-color: #f2595e; */
 }
