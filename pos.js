@@ -109,11 +109,11 @@ function initMap() {
 
   for (var i = 0; i < value.length; i++) {
     const marker = new google.maps.Marker({
-      position:  { lat: value[0][0], lng: value[0][1] },
+      position:  { lat: value[i][i], lng: value[i][1] },
       map,
       title:"tope",
     });
-    console.log(value[i][0]);
+    //console.log(value[i][0]);
   }
 
 
