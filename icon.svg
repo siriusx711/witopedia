@@ -55,7 +55,10 @@
     <path
        id="rect1588"
        style="fill:#241f1c;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
-       d="m 105.95094,106.88742 v 1.98438 h -0.40456 v 0.34689 h 0.40456 0.4343 0.40456 v -0.34689 h -0.40456 v -1.98438 z" />
+       d="m 105.95094,106.88742 v 1.98438 h -0.40456 v 0.34689 h 0.40456 0.4343 0.40456 v -0.34689 h -0.40456 v -1.98438 z"
+       inkscape:export-filename="C:\xampp\htdocs\pos\witopedia\icon.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <rect
        style="fill:#ffcc00;stroke:#000000;stroke-width:0.0101339;stroke-opacity:1"
        id="rect43664-0"
