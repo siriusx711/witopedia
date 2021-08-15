@@ -3,8 +3,7 @@ const boton_mapa = document.querySelector('#boton_mapa');
 localStorage.clear();
 // geolocalizacion
 //
-var crd;
-const mostrar_coordenadas = document.querySelector('#mostrar_coordenadas');
+
 //
 // function getGeolocation(id)
 // {
@@ -37,36 +36,40 @@ const mostrar_coordenadas = document.querySelector('#mostrar_coordenadas');
 //   id = navigator.geolocation.watchPosition(success, error, options);
 // }
 
-var options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0
-};
+const mostrar_coordenadas = document.querySelector('#mostrar_coordenadas');
+function getGeolocation(){
+  var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
+  
+  function success(pos) {
+    var crd = pos.coords;
+    mostrar_coordenadas.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude + "<br>" + "Velocidad: "+ crd.speed + "<br>" + "Prec: " + crd.accuracy;
+    console.log('Latitude : ' + crd.latitude);
+    console.log('Longitude: ' + crd.longitude);
+    console.log('More or less ' + crd.accuracy + ' meters.');
+    console.log("mapa iniciado");
+    let map;
+    function initMap(){
+      map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat:crd.latitude, lng:crd.longitude  },
+      zoom: 16,
+      zoomControl:false,
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initMap);
 
-function success(pos) {
-  var crd = pos.coords;
-  mostrar_coordenadas.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude + "<br>" + "Velocidad: "+ crd.speed + "<br>" + "Prec: " + crd.accuracy;
-  console.log('Latitude : ' + crd.latitude);
-  console.log('Longitude: ' + crd.longitude);
-  console.log('More or less ' + crd.accuracy + ' meters.');
-  console.log("mapa iniciado");
-  let map;
-  function initMap(){
-    map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat:crd.latitude, lng:crd.longitude  },
-    zoom: 16,
-    zoomControl:false,
-    });
-  }
-  google.maps.event.addDomListener(window, 'load', initMap);
+  };
 
-};
+  function error(err) {
+    console.warn('ERROR(' + err.code + '): ' + err.message);
+  };
 
-function error(err) {
-  console.warn('ERROR(' + err.code + '): ' + err.message);
-};
+  navigator.geolocation.watchPosition(success, error, options);
+}
 
-navigator.geolocation.watchPosition(success, error, options);
 
 
 
