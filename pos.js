@@ -3,8 +3,6 @@ const boton_mapa = document.querySelector('#boton_mapa');
 
 
 let map;
-var cr = [20.6698468,-103.8269534];
-
 function initMap()
 {
   try {
@@ -60,40 +58,8 @@ var crd;
 const mostrar_coordenadas = document.querySelector('#mostrar_coordenadas');
 var id = document.getElementById('mostrar_coordenadas');
 
-(function (){
-  console.log("COORDENADAS INICIADAS");
-  const $id = document.getElementById(id),
-  options = {
-    enableHighAccuracy:false,
-    timeout:5000,
-    maximumAge:0,
-  };
-
-  target = {
-    latitude : 0,
-    longitude: 0,
-  }
-
-  const success = (position) => {
-    crd = position.coords;
-    mostrar_coordenadas.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude + "<br>" + "Velocidad: "+ crd.speed + "<br>" + "Prec: " + crd.accuracy;
-
-    if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
-      console.log('Congratulation, you reach the target');
-      navigator.geolocation.clearWatch(id);
-    }
-  }
-
-  const error = (er) => {
-    $id.innerHTML = `<p><mark>Error ${er.code}: ${er.message}</mark></p>`;
-    console.log(`Error ${er.code}:${er.message}`);
-  }
-  id = navigator.geolocation.watchPosition(success, error, options);
-}())
-
-
-// function getGeolocation(id)
-// {
+// (function (){
+//   console.log("COORDENADAS INICIADAS");
 //   const $id = document.getElementById(id),
 //   options = {
 //     enableHighAccuracy:false,
@@ -121,7 +87,39 @@ var id = document.getElementById('mostrar_coordenadas');
 //     console.log(`Error ${er.code}:${er.message}`);
 //   }
 //   id = navigator.geolocation.watchPosition(success, error, options);
-// }
+// }())
+
+
+function getGeolocation(id)
+{
+  const $id = document.getElementById(id),
+  options = {
+    enableHighAccuracy:false,
+    timeout:5000,
+    maximumAge:0,
+  };
+
+  target = {
+    latitude : 0,
+    longitude: 0,
+  }
+
+  const success = (position) => {
+    crd = position.coords;
+    mostrar_coordenadas.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude + "<br>" + "Velocidad: "+ crd.speed + "<br>" + "Prec: " + crd.accuracy;
+
+    if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
+      console.log('Congratulation, you reach the target');
+      navigator.geolocation.clearWatch(id);
+    }
+  }
+
+  const error = (er) => {
+    $id.innerHTML = `<p><mark>Error ${er.code}: ${er.message}</mark></p>`;
+    console.log(`Error ${er.code}:${er.message}`);
+  }
+  id = navigator.geolocation.watchPosition(success, error, options);
+}
 
 // guardar coordenadas en localStorage
 var coordenadas = [];
