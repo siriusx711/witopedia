@@ -14,7 +14,11 @@
   <body>
     <div id="boton_mapa"><img src="./location_off_white_24dp.svg"></div>
     <div class="container">
-      <div id="mostrar_coordenadas">sdf</div>
+      <div id="mostrar_coordenadas">coordenadas:</div>
+      <div class="flex">
+        <button id="guardar" onclick="guardarCoordenadaActual()">GUARDAR UBICACIÓN</button>
+      </div>
+
     </div>
     <div id="map"></div>
     <!-- <div class="container">
@@ -27,7 +31,7 @@
       <p id="lng">Actual: </p>
 
       <div id="geolocation"></div>
-      <button id="guardar" onclick="save_coords()">GUARDAR UBICACIÓN</button>
+
     </div> -->
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->

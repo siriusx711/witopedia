@@ -16,8 +16,74 @@ body {
   align-items: center;
   z-index: 99;
 }
+
+.flex{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  /* background-color: red; */
+  justify-content: center;
+  z-index: 98;
+}
+
+.flex > #guardar{
+  text-align: center;
+  background-color: #F9A825;
+  padding-top:35px;
+  padding-bottom:35px;
+  padding-left:40px;
+  padding-right:40px;
+  color: purple;
+  font-weight: bold;
+  font-size: 22px;
+  border: none;
+}
+
+/*
+#guardar{
+  /* position: absolute;
+  background-color: #F9A825;
+  padding-top:35px;
+  padding-bottom:35px;
+  padding-left:40px;
+  padding-right:40px;
+  width: 70%;
+  left: 50%;
+  bottom: 3%;
+  color: purple;
+  font-weight: bold;
+  font-size: 22px;
+  border: none;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  text-align:center;
+  z-index: 26;
+}*/
+/* #guardar:active{
+  position: absolute;
+  background-color: #D14802;
+  padding-top:35px;
+  padding-bottom:35px;
+  padding-left:40px;
+  padding-right:40px;
+  width: 70%;
+  left: 50%;
+  bottom: 3%;
+  color: purple;
+  font-weight: bold;
+  font-size: 22px;
+  border: none;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  text-align:center;
+} */
+
 #mostrar_coordenadas{
-  
+  position: absolute;
+  /* background-color: black; */
+  /* color: white; */
+  font-size: 10px;
+  z-index: 101;
 }
 /*
 .container div img {
@@ -111,41 +177,4 @@ body {
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   text-align:center;
-}
-#guardar{
-  position: absolute;
-  background-color: #F9A825;
-  padding-top:35px;
-  padding-bottom:35px;
-  padding-left:40px;
-  padding-right:40px;
-  width: 70%;
-  left: 50%;
-  bottom: 3%;
-  color: purple;
-  font-weight: bold;
-  font-size: 22px;
-  border: none;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  text-align:center;
-  z-index: 26;
-}
-#guardar:active{
-  position: absolute;
-  background-color: #D14802;
-  padding-top:35px;
-  padding-bottom:35px;
-  padding-left:40px;
-  padding-right:40px;
-  width: 70%;
-  left: 50%;
-  bottom: 3%;
-  color: purple;
-  font-weight: bold;
-  font-size: 22px;
-  border: none;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  text-align:center;
-} */
+}*/

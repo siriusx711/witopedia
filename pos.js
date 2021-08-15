@@ -7,12 +7,17 @@ var cr = [20.6698468,-103.8269534];
 
 function initMap()
 {
-  console.log("mapa iniciado");
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat:cr[0], lng:cr[1]  },
+  try {
+    console.log("mapa iniciado");
+    map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat:crd.latitude, lng:crd.longitude  },
     zoom: 16,
     zoomControl:false,
-  });
+    });  
+  } catch (e) {
+    console.error(e);
+  }
+
 
 /*
   for (var i = 0; i < value.length; i++) {
@@ -58,7 +63,7 @@ function getGeolocation(id)
 {
   const $id = document.getElementById(id),
   options = {
-    enableHighAccuracy:true,
+    enableHighAccuracy:false,
     timeout:5000,
     maximumAge:0,
   };
@@ -71,6 +76,7 @@ function getGeolocation(id)
   const success = (position) => {
     crd = position.coords;
     mostrar_coordenadas.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude + "<br>" + "Velocidad: "+ crd.speed + "<br>" + "Prec: " + crd.accuracy;
+
     if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
       console.log('Congratulation, you reach the target');
       navigator.geolocation.clearWatch(id);
@@ -81,8 +87,23 @@ function getGeolocation(id)
     $id.innerHTML = `<p><mark>Error ${er.code}: ${er.message}</mark></p>`;
     console.log(`Error ${er.code}:${er.message}`);
   }
+  //id =
   id = navigator.geolocation.watchPosition(success, error, options);
 }
+
+var coordenadas = [];
+function guardarCoordenadaActual(){
+  const click = new Audio('click.mp3');
+  click.play();
+  click.loop = false;
+  coordenadas.push([crd.latitude, crd.longitude]);
+  window.localStorage.setItem(
+    "coordenadas", JSON.stringify(coordenadas)
+  );
+}
+
+// window.localStorage.setItem('Lat', crd.latitude);
+// window.localStorage.setItem('Lng', crd.longitude);
 
 // var lat = "Lat:";
 // var lng = "Lng:";
@@ -97,18 +118,23 @@ function getGeolocation(id)
 //   }
 // }
 
+// (function ()
+// {
+//   //try {
+//     console.log("funcion de guardar coord");
+//     window.localStorage.setItem('Lat', crd.latitude);
+//     window.localStorage.setItem('Lng', crd.longitude);
+//   //} catch (e) {
+//   //  console.error('Error al intentar guardar coordenada en localStorage');
+//   //}
+// }());
 
 
+// (function (){
+//   console.log(window.localStorage.getItem('Lat'));
+//   console.log(window.localStorage.getItem('Lng'));
+// }());
 
-
-// var id, target, option;
-// const d = document;
-// var showCord = d.getElementById('geolocation');
-// var latSt, lngSt, crd;
-// var $lat = d.getElementById('lat');
-// var $lng = d.getElementById('lng');
-//
-//
 // function getCoords(){
 //   var intervalo;
 //   intervalo = setInterval(coords,5000);
