@@ -37,15 +37,17 @@ localStorage.clear();
 // }
 
 const mostrar_coordenadas = document.querySelector('#mostrar_coordenadas');
+var crd;
+
 function getGeolocation(){
   var options = {
     enableHighAccuracy: true,
     timeout: 5000,
     maximumAge: 0
   };
-  
+
   function success(pos) {
-    var crd = pos.coords;
+    crd = pos.coords;
     mostrar_coordenadas.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude + "<br>" + "Velocidad: "+ crd.speed + "<br>" + "Prec: " + crd.accuracy;
     console.log('Latitude : ' + crd.latitude);
     console.log('Longitude: ' + crd.longitude);
@@ -60,7 +62,6 @@ function getGeolocation(){
       });
     }
     google.maps.event.addDomListener(window, 'load', initMap);
-
   };
 
   function error(err) {
@@ -68,6 +69,7 @@ function getGeolocation(){
   };
 
   navigator.geolocation.watchPosition(success, error, options);
+
 }
 
 
