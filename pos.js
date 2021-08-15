@@ -82,14 +82,15 @@ value = JSON.parse(value);
 
 // google Maps
 function visibilidad(){
-  if (map1.style.visibility == 'hidden') {
-    map1.style.visibility = 'visible';
-    mapa.innerHTML = "<img src='./location_off_white_24dp.svg'>"
-  }else{
-    map1.style.visibility = 'hidden';
+  if (container.style.visibility == 'hidden') {
+    container.style.visibility = 'visible';
     mapa.innerHTML = "<img src='./location_on_white_24dp.svg'>"
+  }else{
+    container.style.visibility = 'hidden';
+    mapa.innerHTML = "<img src='./location_off_white_24dp.svg'>"
   }
 }
+const container = document.querySelector('.container');
 const mapa = document.getElementById('mapa');
 const map1 = document.getElementById('map');
 mapa.addEventListener('click', visibilidad, false);
