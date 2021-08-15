@@ -56,7 +56,7 @@ boton_mapa.addEventListener('click', function()
 // geolocalizacion
 var crd;
 const mostrar_coordenadas = document.querySelector('#mostrar_coordenadas');
-var id = document.getElementById('mostrar_coordenadas');
+//var id = document.getElementById('mostrar_coordenadas');
 
 // (function (){
 //   console.log("COORDENADAS INICIADAS");
