@@ -1,12 +1,13 @@
 const container = document.querySelector('.container');
 const boton_mapa = document.querySelector('#boton_mapa');
-
+localStorage.clear();
 // geolocalizacion
 //
 var crd;
 const mostrar_coordenadas = document.querySelector('#mostrar_coordenadas');
 
-function getGeolocation(id){
+function getGeolocation(id)
+{
   const $id = document.getElementById(id),
   options = {
     enableHighAccuracy:true,
@@ -41,6 +42,10 @@ let map;
 var cr = [ 20.669859, -103.8269931];
 function initMap()
 {
+  if(crd.latitude !== null){
+    console.log('latitude no es null');
+  }
+
   console.log("mapa iniciado");
   map = new google.maps.Map(document.getElementById("map"), {
   center: { lat:crd.latitude, lng:crd.longitude  },
@@ -67,21 +72,21 @@ function initMap()
   //map.setOptions({ styles: styles["hide"] });
 }
 
-
-const styles = {
-  default: [],
-  hide: [
-    {
-      featureType: "poi.business",
-      stylers: [{ visibility: "off" }],
-    },
-    {
-      featureType: "transit",
-      elementType: "labels.icon",
-      stylers: [{ visibility: "off" }],
-    },
-  ],
-};
+//
+// const styles = {
+//   default: [],
+//   hide: [
+//     {
+//       featureType: "poi.business",
+//       stylers: [{ visibility: "off" }],
+//     },
+//     {
+//       featureType: "transit",
+//       elementType: "labels.icon",
+//       stylers: [{ visibility: "off" }],
+//     },
+//   ],
+// };
 
 // boton para ocultar el container
 boton_mapa.addEventListener('click', function()
@@ -95,11 +100,7 @@ boton_mapa.addEventListener('click', function()
 
 
 
-// function getGeolocation(id)
-// {
-  //console.log(crd.latitude);
-
-// guardar coordenadas en localStorage
+//guardar coordenadas en localStorage
 var coordenadas = [];
 function guardarCoordenadaActual(){
   const click = new Audio('click.mp3');
