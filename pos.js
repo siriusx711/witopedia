@@ -56,45 +56,13 @@ boton_mapa.addEventListener('click', function()
 // geolocalizacion
 var crd;
 const mostrar_coordenadas = document.querySelector('#mostrar_coordenadas');
-//var id = document.getElementById('mostrar_coordenadas');
-
-// (function (){
-//   console.log("COORDENADAS INICIADAS");
-//   const $id = document.getElementById(id),
-//   options = {
-//     enableHighAccuracy:false,
-//     timeout:5000,
-//     maximumAge:0,
-//   };
-//
-//   target = {
-//     latitude : 0,
-//     longitude: 0,
-//   }
-//
-//   const success = (position) => {
-//     crd = position.coords;
-//     mostrar_coordenadas.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude + "<br>" + "Velocidad: "+ crd.speed + "<br>" + "Prec: " + crd.accuracy;
-//
-//     if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
-//       console.log('Congratulation, you reach the target');
-//       navigator.geolocation.clearWatch(id);
-//     }
-//   }
-//
-//   const error = (er) => {
-//     $id.innerHTML = `<p><mark>Error ${er.code}: ${er.message}</mark></p>`;
-//     console.log(`Error ${er.code}:${er.message}`);
-//   }
-//   id = navigator.geolocation.watchPosition(success, error, options);
-// }())
-
 
 function getGeolocation(id)
 {
+  console.log(crd.latitude);
   const $id = document.getElementById(id),
   options = {
-    enableHighAccuracy:false,
+    enableHighAccuracy:true,
     timeout:5000,
     maximumAge:0,
   };
@@ -132,6 +100,19 @@ function guardarCoordenadaActual(){
     "coordenadas", JSON.stringify(coordenadas)
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // window.localStorage.setItem('Lat', crd.latitude);
 // window.localStorage.setItem('Lng', crd.longitude);
