@@ -12,8 +12,10 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   </head>
   <body>
+    <div id="boton_mapa"><img src="./location_off_white_24dp.svg"></div>
+    <div class="container"></div>
     <div id="map"></div>
-    <div class="container">
+    <!-- <div class="container">
       <div id="logo">
         <img src="./witopedia.svg" alt="Witopedia">
         <p class="witopedia-text">Witopedia</p>
@@ -24,15 +26,15 @@
 
       <div id="geolocation"></div>
       <button id="guardar" onclick="save_coords()">GUARDAR UBICACIÓN</button>
-    </div>
-    <p id="mapa"><img src="./location_off_white_24dp.svg"></p>
+    </div> -->
+
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2wuA0BO3r7KsMQD_CenEILiFTslrFxzg">
     </script>
     <script src="./pos.js" charset="utf-8"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
       getGeolocation('geolocation');
-    </script>
+    </script> -->
     <script type="text/javascript">
       google.maps.event.addDomListener(window, 'load', initMap);
     </script>
