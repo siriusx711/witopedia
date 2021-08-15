@@ -4,7 +4,7 @@ var showCord = d.getElementById('geolocation');
 var latSt, lngSt, crd;
 var $lat = d.getElementById('lat');
 var $lng = d.getElementById('lng');
-
+//
 function getGeolocation(id)
 {
   const $id = d.getElementById(id),
@@ -99,7 +99,7 @@ let map;
 function initMap() {
   console.log("mapa iniciado");
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat:crd.latitude , lng:crd.longitude  },
+    center: { lat:crd.latitude, lng:crd.longitude  },
     zoom: 16,
     zoomControl:false,
   });
@@ -107,13 +107,13 @@ function initMap() {
   for (var i = 0; i < value.length; i++) {
     const marker = new google.maps.Marker({
      position: { lat: value[i][0], lng: value[i][1] },
-     map:map,
+     map,
      title:"tope",
      icon: './icon.png',
     });
   }
   map.setOptions({ styles: styles["hide"] });
-  
+
 }
 
 const styles = {

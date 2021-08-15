@@ -31,6 +31,7 @@ body {
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   text-align:center;
+  z-index: 28;
 }
 .witopedia-text {
   font-family: 'Source Serif Pro', serif;
@@ -44,11 +45,10 @@ body {
   width: 100%;
   left: 50%;
   top: 84%;
-
-
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   text-align:center;
+  z-index: 27;
 }
 
 #mapa {
@@ -65,19 +65,13 @@ body {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  /*background: #5cb85c;*/
   z-index: 51;
   box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
 #mapa img{
-  /* position: absolute;
-  left: 50%;
-  top: 50%; */
   width: 40px;
   padding-top: 6px;
-  /* padding-bottom: 0;
-  text-decoration: none; */
 }
 
 #map {
@@ -91,7 +85,6 @@ body {
   left: 50%;
   top: 53%;
   color: green;
-
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   text-align:center;
@@ -125,6 +118,7 @@ body {
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   text-align:center;
+  z-index: 26;
 }
 #guardar:active{
   position: absolute;
