@@ -5,53 +5,84 @@ localStorage.clear();
 //
 var crd;
 const mostrar_coordenadas = document.querySelector('#mostrar_coordenadas');
+//
+// function getGeolocation(id)
+// {
+//   const $id = document.getElementById(id),
+//   options = {
+//     enableHighAccuracy:true,
+//     timeout:5000,
+//     maximumAge:0,
+//   };
+//
+//   target = {
+//     latitude : 0,
+//     longitude: 0,
+//   }
+//
+//   const success = (position) => {
+//     crd = position.coords;
+//     mostrar_coordenadas.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude + "<br>" + "Velocidad: "+ crd.speed + "<br>" + "Prec: " + crd.accuracy;
+//
+//     if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
+//       console.log('Congratulation, you reach the target');
+//       navigator.geolocation.clearWatch(id);
+//     }
+//   }
+//
+//   const error = (er) => {
+//     $id.innerHTML = `<p><mark>Error ${er.code}: ${er.message}</mark></p>`;
+//     console.log(`Error ${er.code}:${er.message}`);
+//   }
+//   id = navigator.geolocation.watchPosition(success, error, options);
+// }
 
-function getGeolocation(id)
-{
-  const $id = document.getElementById(id),
-  options = {
-    enableHighAccuracy:true,
-    timeout:5000,
-    maximumAge:0,
-  };
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
 
-  target = {
-    latitude : 0,
-    longitude: 0,
-  }
-
-  const success = (position) => {
-    crd = position.coords;
-    mostrar_coordenadas.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude + "<br>" + "Velocidad: "+ crd.speed + "<br>" + "Prec: " + crd.accuracy;
-
-    if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
-      console.log('Congratulation, you reach the target');
-      navigator.geolocation.clearWatch(id);
-    }
-  }
-
-  const error = (er) => {
-    $id.innerHTML = `<p><mark>Error ${er.code}: ${er.message}</mark></p>`;
-    console.log(`Error ${er.code}:${er.message}`);
-  }
-  id = navigator.geolocation.watchPosition(success, error, options);
-}
-
-
-let map;
-var cr = [ 20.669859, -103.8269931];
-function initMap()
-{
-  if(crd.latitude !== null){
-    console.log('latitude no es null');
-  }
-
+function success(pos) {
+  var crd = pos.coords;
+  mostrar_coordenadas.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude + "<br>" + "Velocidad: "+ crd.speed + "<br>" + "Prec: " + crd.accuracy;
+  console.log('Latitude : ' + crd.latitude);
+  console.log('Longitude: ' + crd.longitude);
+  console.log('More or less ' + crd.accuracy + ' meters.');
   console.log("mapa iniciado");
-  map = new google.maps.Map(document.getElementById("map"), {
-  center: { lat:crd.latitude, lng:crd.longitude  },
-  zoom: 16,
-  zoomControl:false,
-  });
+  let map;
+  function initMap(){
+    map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat:crd.latitude, lng:crd.longitude  },
+    zoom: 16,
+    zoomControl:false,
+    });
+  }
+  google.maps.event.addDomListener(window, 'load', initMap);
+
+};
+
+function error(err) {
+  console.warn('ERROR(' + err.code + '): ' + err.message);
+};
+
+navigator.geolocation.watchPosition(success, error, options);
+
+
+
+//
+// let map;
+// var cr = [ 20.669859, -103.8269931];
+// function initMap()
+// {
+
+  //
+  // console.log("mapa iniciado");
+  // map = new google.maps.Map(document.getElementById("map"), {
+  // center: { lat:crd.latitude, lng:crd.longitude  },
+  // zoom: 16,
+  // zoomControl:false,
+  // });
 
   // console.log("mapa iniciado");
   // map = new google.maps.Map(document.getElementById("map"), {
@@ -70,7 +101,7 @@ function initMap()
     });
   }*/
   //map.setOptions({ styles: styles["hide"] });
-}
+// }
 
 //
 // const styles = {
