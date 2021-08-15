@@ -13,7 +13,9 @@
   </head>
   <body>
     <div id="boton_mapa"><img src="./location_off_white_24dp.svg"></div>
-    <div class="container"></div>
+    <div class="container">
+      <div id="mostrar_coordenadas">sdf</div>
+    </div>
     <div id="map"></div>
     <!-- <div class="container">
       <div id="logo">
@@ -32,9 +34,9 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2wuA0BO3r7KsMQD_CenEILiFTslrFxzg">
     </script>
     <script src="./pos.js" charset="utf-8"></script>
-    <!-- <script type="text/javascript">
-      getGeolocation('geolocation');
-    </script> -->
+    <script type="text/javascript">
+      getGeolocation('mostrar_coordenadas');
+    </script>
     <script type="text/javascript">
       google.maps.event.addDomListener(window, 'load', initMap);
     </script>

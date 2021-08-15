@@ -16,6 +16,9 @@ body {
   align-items: center;
   z-index: 99;
 }
+#mostrar_coordenadas{
+  
+}
 /*
 .container div img {
   position: absolute;
