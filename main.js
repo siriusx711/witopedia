@@ -55,6 +55,15 @@ var coordenadas = [lat, lng];
 coordenadas[0] = parseFloat(coordenadas[0]);
 coordenadas[1] = parseFloat(coordenadas[1]);
 
+(function(){
+  window.setTimeout(iniciarMapa, 5000);
+}());
+
+function iniciarMapa(){
+  console.log('iniciando mapa');
+  initMap();
+  //google.maps.event.addDomListener(window, 'load', initMap);
+}
 
 // google maps
 function initMap()
@@ -64,6 +73,7 @@ function initMap()
   zoom: 16,
   zoomControl:false,
   });
+  console.log('google maps');
 /*
   for (var i = 0; i < value.length; i++) {
     const marker = new google.maps.Marker({
@@ -75,15 +85,6 @@ function initMap()
   }*/
   // map.setOptions({ styles: styles["hide"] });
 }
-
-var intervalo = window.setTimeout(iniciarMapa, 5000);
-
-function iniciarMapa(){
-  google.maps.event.addDomListener(window, 'load', initMap);
-}
-
-window.addEventListener("load", intervalo, false);
-
 
 
 
