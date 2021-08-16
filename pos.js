@@ -1,7 +1,7 @@
 const container = document.querySelector('.container');
 const boton_mapa = document.querySelector('#boton_mapa');
 const mostrar_coordenadas = document.querySelector('#mostrar_coordenadas');
-var crd;
+
 localStorage.clear();
 
 // geolocalizacion
@@ -21,7 +21,7 @@ function getGeolocation(id)
   }
 
   const success = (position) => {
-    crd = position.coords;
+    var crd = position.coords;
     mostrar_coordenadas.innerHTML = "Lat: " + crd.latitude + "<br>" + "Long: " + crd.longitude + "<br>" + "Velocidad: "+ crd.speed + "<br>" + "Prec: " + crd.accuracy;
 
     if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
@@ -37,15 +37,29 @@ function getGeolocation(id)
   id = navigator.geolocation.watchPosition(success, error, options);
 }
 
+
+//google map
+
+var cr = localStorage.getItem('coordenadas');
+cr = JSON.parse(cr);
 let map;
-var cr = [20.669864,-103.82698839999999];
 function initMap()
 {
   map = new google.maps.Map(document.getElementById("map"), {
-  center: { lat:cr[0], lng:cr[1] },
+  center: { lat:20.669859, lng:-103.8269931 },
   zoom: 16,
   zoomControl:false,
   });
+  console.log("MAPA");
+  // if(typeof cr === 'undefined'){
+
+  // }else{
+  //   map = new google.maps.Map(document.getElementById("map"), {
+  //   center: { lat:crd.latitude, lng:crd.longitude },
+  //   zoom: 16,
+  //   zoomControl:false,
+  //   });
+  // }
 }
 
 // boton para ocultar el container
@@ -61,13 +75,13 @@ boton_mapa.addEventListener('click', function()
 
 
 //guardar coordenadas en localStorage
-var coordenadas = [];
-function guardarCoordenadaActual(){
-  const click = new Audio('click.mp3');
-  click.play();
-  click.loop = false;
-  coordenadas.push([crd.latitude, crd.longitude]);
-  window.localStorage.setItem(
-    "coordenadas", JSON.stringify(coordenadas)
-  );
-}
+// var coordenadas = [];
+// function guardarCoordenadaActual(){
+//   const click = new Audio('click.mp3');
+//   click.play();
+//   click.loop = false;
+//   coordenadas.push([crd.latitude, crd.longitude]);
+//   window.localStorage.setItem(
+//     "coordenadas", JSON.stringify(coordenadas)
+//   );
+// }
