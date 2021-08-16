@@ -38,10 +38,11 @@ function getGeolocation(id)
 }
 
 let map;
+var cr = [20.669864,-103.82698839999999];
 function initMap()
 {
   map = new google.maps.Map(document.getElementById("map"), {
-  center: { lat:crd.latitude, lng:crd.longitude  },
+  center: { lat:cr[0], lng:cr[1] },
   zoom: 16,
   zoomControl:false,
   });
